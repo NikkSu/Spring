@@ -1,17 +1,24 @@
 package org.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
 /**
  * @author Neil Alishev
  */
+@Component
 public class MusicPlayer {
-    private Music music;
+   private Music music1;
+   private Music music2;
+@Autowired
+   public MusicPlayer(@Qualifier("rapMusic") Music music1,
+                      @Qualifier("rockMusic") Music music2) {
+       this.music1 = music1;
+       this.music2 = music2;
+   }
 
-    // IoC
-    public MusicPlayer(Music music) {
-        this.music = music;
-    }
-
-    public void playMusic() {
-        System.out.println("Playing: " + music.getSong());
+    public String playMusic() {
+       return"Playing "+ music1.getSong()+" and "+ music2.getSong();
     }
 }
