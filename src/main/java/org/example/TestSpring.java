@@ -22,12 +22,15 @@ public class TestSpring {
 //        player.playMusic();
 //        Computer computer = context.getBean("computer", Computer.class);
 //        System.out.println(computer);
-        MusicPlayer player = (MusicPlayer) context.getBean("musicPlayer",MusicPlayer.class);
-        System.out.println((player.getName()));
-        System.out.println( (player.getVolume()));
-        RapMusic player1 = (RapMusic) context.getBean("rapMusic",RapMusic.class);
-        RapMusic player2 = (RapMusic) context.getBean("rapMusic",RapMusic.class);
-        System.out.println(player1 == player2);
+
+//        MusicPlayer player = (MusicPlayer) context.getBean("musicPlayer",MusicPlayer.class);
+//        System.out.println((player.getName()));
+//        System.out.println( (player.getVolume()));
+//        RapMusic player1 = (RapMusic) context.getBean("rapMusic",RapMusic.class);
+//        RapMusic player2 = (RapMusic) context.getBean("rapMusic",RapMusic.class);
+//        System.out.println(player1 == player2);
+          MusicPlayer player = context.getBean(MusicPlayer.class);
+          System.out.println(player.playMusic());
 
         context.close();
     }

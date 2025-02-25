@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.Random;
+
 /**
  * @author Neil Alishev
  */
@@ -30,17 +33,18 @@ public class MusicPlayer {
     public String getName() {
         return name;
     }
-
+    private List<Music> musicList;
    private Music music1;
    private Music music2;
 //@Autowired
-   public MusicPlayer(@Qualifier("rapMusic") Music music1,
-                      @Qualifier("rockMusic") Music music2) {
-       this.music1 = music1;
-       this.music2 = music2;
+   public MusicPlayer( List<Music> musicList) {
+       this.musicList = musicList;
    }
 
     public String playMusic() {
-       return"Playing "+ music1.getSong()+" and "+ music2.getSong();
+        Random random = new Random();
+
+        return "Playing: " + musicList.get(random.nextInt(musicList.size())).getSong();
     }
+
 }
