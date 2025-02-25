@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
+//@Component
 
 public class RapMusic implements Music {
-private RapMusic (){};
+public RapMusic(){};
 public static RapMusic getRapMusic(){
     return new RapMusic();
 };

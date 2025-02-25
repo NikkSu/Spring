@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author Neil Alishev
  */
-@Component
+//@Component
 public class MusicPlayer {
     @Value("${musicPlayer.name}")
     private String name;
@@ -33,7 +33,7 @@ public class MusicPlayer {
 
    private Music music1;
    private Music music2;
-@Autowired
+//@Autowired
    public MusicPlayer(@Qualifier("rapMusic") Music music1,
                       @Qualifier("rockMusic") Music music2) {
        this.music1 = music1;
